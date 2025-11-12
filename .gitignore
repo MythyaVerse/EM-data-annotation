@@ -71,7 +71,6 @@ coco_format/
 # Model files
 *.pth
 *.pt
-*.onnx
 *.pb
 *.h5
 *.pkl
