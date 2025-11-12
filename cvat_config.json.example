@@ -1,0 +1,8 @@
+{
+  "cvat_host": "http://localhost:8080",
+  "cvat_username": "your_username",
+  "cvat_password": "your_password",
+  "organization": "",
+  "project_name": "Text Detection Correction",
+  "task_prefix": "text_detection_"
+}
