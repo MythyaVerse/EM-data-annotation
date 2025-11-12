@@ -1,0 +1,157 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Output directories - Detection results
+output/
+text_detection_updated/
+annotated_videos/
+
+# CVAT related
+cvat_local/
+cvat_export/
+*.zip
+
+# CVAT sensitive config (exclude passwords)
+cvat_config.json
+
+# Large media files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+*.webm
+
+# Large image directories
+frames/
+frames_and_json/
+
+# COCO format outputs
+coco_format/
+
+# Model files
+*.pth
+*.pt
+*.onnx
+*.pb
+*.h5
+*.pkl
+*.pickle
+weights/
+models/
+checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Environment variables
+.env
+.env.local
+
+# Docker
+docker-compose.override.yml
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Specific to this project - keep small sample data only
+# Uncomment if you have sample data you want to include
+# !sample_data/
+# !sample_data/**/*.jpg
+# !sample_data/**/*.json
+
+# Keep documentation and config templates
+!README*.md
+!*_GUIDE.md
+!*_SETUP.md
+!QUICK_REFERENCE.md
+!cvat_config.json.example
+!requirements*.txt
+!.gitignore
+
+# Ignore workflow metadata
+cvat_workflow_metadata.json
+
+# Ignore statistics files
+*_statistics.json
+export_statistics.json
+detection_statistics.json
+
+# Ignore backup files
+*.bak
+*.backup
