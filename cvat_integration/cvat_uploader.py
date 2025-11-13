@@ -15,11 +15,12 @@ from pathlib import Path
 
 try:
     from cvat_sdk import make_client
-    from cvat_sdk.core.proxies.tasks import Task
+    from cvat_sdk.core.proxies.tasks import Task, ResourceType
     from cvat_sdk.core.proxies.projects import Project
 except ImportError:
     print("WARNING: cvat-sdk not installed. Install with: pip install cvat-sdk")
     make_client = None
+    ResourceType = None
 
 
 class CVATUploader:
@@ -185,8 +186,16 @@ class CVATUploader:
 
         # Create task specification
         task_spec = {
-            "name": task_name,
-            "labels": [
+            "name": task_name
+        }
+
+        # Add project association OR labels (not both)
+        if project_id:
+            # Task inherits labels from project
+            task_spec["project_id"] = project_id
+        else:
+            # Task defines its own labels
+            task_spec["labels"] = [
                 {
                     "name": "text",
                     "color": "#00ff00",
@@ -195,36 +204,36 @@ class CVATUploader:
                             "name": "confidence",
                             "mutable": False,
                             "input_type": "number",
-                            "default_value": "0.0"
+                            "default_value": "0.0",
+                            "values": ["0.0", "1.0"]
                         },
                         {
                             "name": "detection_id",
                             "mutable": False,
                             "input_type": "number",
-                            "default_value": "0"
+                            "default_value": "0",
+                            "values": []
                         }
                     ]
                 }
             ]
-        }
 
-        # Add project association if available
-        if project_id:
-            task_spec["project_id"] = project_id
+        # Create task (without data first to avoid SDK bug)
+        task = self.client.tasks.create(spec=task_spec)
 
-        # Create task
-        task = self.client.tasks.create_from_data(
-            spec=task_spec,
-            resource_type="local",
+        print(f"✓ Task created: {task.name} (ID: {task.id})")
+        print(f"  URL: {self.config['cvat_host']}/tasks/{task.id}")
+
+        # Upload data to the task
+        print("  Uploading frames...")
+        task.upload_data(
+            resource_type=ResourceType.LOCAL,
             resources=image_files,
-            data_params={
+            params={
                 "image_quality": 95,
                 "sorting_method": "natural"  # Sort frames naturally (0, 1, 2, ... not 0, 1, 10, 11, ...)
             }
         )
-
-        print(f"✓ Task created: {task.name} (ID: {task.id})")
-        print(f"  URL: {self.config['cvat_host']}/tasks/{task.id}")
 
         # Wait for task to be ready
         print("  Waiting for task initialization...")
@@ -245,11 +254,11 @@ class CVATUploader:
         while time.time() - start_time < timeout:
             task = self.client.tasks.retrieve(task_id)
 
-            if task.status.value == "completed":
+            if task.status == "completed":
                 print("  ✓ Task ready")
                 return
 
-            elif task.status.value == "failed":
+            elif task.status == "failed":
                 raise RuntimeError(f"Task creation failed: {task.id}")
 
             time.sleep(2)

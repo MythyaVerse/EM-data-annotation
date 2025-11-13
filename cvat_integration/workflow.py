@@ -68,10 +68,14 @@ class CVATWorkflow:
         print("CVAT UPLOAD WORKFLOW")
         print("="*70)
 
-        # Validate input directory
+        # Validate input directories
         frames_json_dir = os.path.join(detection_output_dir, "frames_and_json")
         if not os.path.exists(frames_json_dir):
             raise FileNotFoundError(f"frames_and_json directory not found: {frames_json_dir}")
+
+        original_frames_dir = os.path.join(detection_output_dir, "original_frames")
+        if not os.path.exists(original_frames_dir):
+            raise FileNotFoundError(f"original_frames directory not found: {original_frames_dir}")
 
         # Step 1: Convert to CVAT format
         print("\n[STEP 1/3] Converting detections to CVAT format...")
@@ -98,7 +102,7 @@ class CVATWorkflow:
 
         upload_result = self.uploader.create_complete_task(
             task_name=task_name,
-            frames_dir=frames_json_dir,
+            frames_dir=original_frames_dir,
             annotations_file=cvat_annotations_file
         )
 
@@ -175,35 +179,59 @@ class CVATWorkflow:
             task_id = metadata["task_id"]
             print(f"✓ Detected task ID from metadata: {task_id}")
 
-        # Create export directory
-        export_dir = os.path.join(detection_output_dir, "cvat_export")
-        os.makedirs(export_dir, exist_ok=True)
+        # Get task name for directory structure
+        task = self.exporter.client.tasks.retrieve(task_id) if self.exporter.client else None
+        if not task:
+            self.exporter.connect()
+            task = self.exporter.client.tasks.retrieve(task_id)
 
-        # Step 1: Export and convert
-        print("\n[STEP 1/2] Exporting from CVAT and converting...")
+        # Create export directory: exports/{video_name}_{task_id}/
+        export_base_dir = os.path.join("exports", f"{video_name}_{task_id}")
+        cvat_dir = os.path.join(export_base_dir, "cvat")
+        coco_dir = os.path.join(export_base_dir, "coco")
 
-        original_detections_dir = os.path.join(detection_output_dir, "frames_and_json")
+        os.makedirs(export_base_dir, exist_ok=True)
 
-        export_stats = self.exporter.export_and_convert(
+        print(f"\n📁 Export directory: {export_base_dir}")
+
+        # Step 1: Export in both formats
+        print("\n[STEP 1/2] Exporting annotations in CVAT and COCO formats...")
+
+        export_stats = self.exporter.export_dual_format(
             task_id=task_id,
-            output_dir=export_dir,
-            compare_with_original=original_detections_dir
+            cvat_output_dir=cvat_dir,
+            coco_output_dir=coco_dir
         )
 
-        # Step 2: Update workflow metadata
-        print("\n[STEP 2/2] Updating workflow metadata...")
+        # Step 2: Save export metadata
+        print("\n[STEP 2/2] Saving export metadata...")
 
-        metadata_file = os.path.join(detection_output_dir, "cvat_workflow_metadata.json")
-        if os.path.exists(metadata_file):
-            with open(metadata_file, 'r') as f:
+        export_metadata = {
+            "video_name": video_name,
+            "task_id": task_id,
+            "task_name": export_stats["task_name"],
+            "export_base_dir": export_base_dir,
+            "cvat_export": export_stats["cvat_export"],
+            "coco_export": export_stats["coco_export"],
+            "num_frames": export_stats["num_frames"],
+            "workflow_stage": "exported_from_cvat"
+        }
+
+        export_metadata_file = os.path.join(export_base_dir, "export_metadata.json")
+        with open(export_metadata_file, 'w') as f:
+            json.dump(export_metadata, f, indent=2)
+
+        # Update original workflow metadata if it exists
+        workflow_metadata_file = os.path.join(detection_output_dir, "cvat_workflow_metadata.json")
+        if os.path.exists(workflow_metadata_file):
+            with open(workflow_metadata_file, 'r') as f:
                 metadata = json.load(f)
 
             metadata["workflow_stage"] = "exported_from_cvat"
-            metadata["export_dir"] = export_dir
-            metadata["corrected_detections_dir"] = export_stats["output_dir"]
-            metadata["export_statistics"] = export_stats
+            metadata["export_dir"] = export_base_dir
+            metadata["last_export"] = export_metadata
 
-            with open(metadata_file, 'w') as f:
+            with open(workflow_metadata_file, 'w') as f:
                 json.dump(metadata, f, indent=2)
 
         # Print summary
@@ -211,24 +239,18 @@ class CVATWorkflow:
         print("EXPORT WORKFLOW COMPLETE ✓")
         print("="*70)
         print(f"Task ID: {task_id}")
-        print(f"Corrected detections: {export_stats['output_dir']}")
+        print(f"Task Name: {export_stats['task_name']}")
+        print(f"Frames: {export_stats['num_frames']}")
+        print(f"\n📁 Exports saved to: {export_base_dir}")
+        print(f"  ├── cvat/annotations.xml")
+        print(f"  └── coco/annotations.json")
 
-        if "comparison" in export_stats:
-            comp = export_stats["comparison"]
-            print(f"\nQuality Metrics:")
-            print(f"  Frames compared: {comp['frames_compared']}")
-            print(f"  Original detections: {comp['original_detections']}")
-            print(f"  Corrected detections: {comp['corrected_detections']}")
-            print(f"  Change: {comp['change_percentage']:.1f}%")
-            print(f"  Added: {comp['added_detections']}")
-            print(f"  Removed: {comp['removed_detections']}")
-
-        print(f"\nNext Steps:")
-        print(f"1. Review corrected detections in: {export_stats['output_dir']}")
-        print(f"2. Use corrected data for model training/evaluation")
+        print(f"\n✨ Next Steps:")
+        print(f"1. Use COCO format for model training: {coco_dir}/annotations.json")
+        print(f"2. Use CVAT format for re-import or backup: {cvat_dir}/annotations.xml")
         print("="*70)
 
-        return export_stats
+        return export_metadata
 
     def status_workflow(
         self,

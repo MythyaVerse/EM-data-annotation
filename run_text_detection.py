@@ -42,7 +42,7 @@ class DetectionConfig:
         # ===== DETECTION PARAMETERS (UPDATED: using scale instead of std) =====
         self.binary_threshold = 0.3
         self.polygon_threshold = 0.65  # Increased from 0.5 to reduce noise
-        self.input_size = (320, 320)  # Model input size
+        self.input_size = (736, 736)  # (320x320) for faster inference, (736x736) for better accuracy over smaller text
         self.mean = (122.67891434, 116.66876762, 104.00698793)
         self.scale = 1.0 / 255.0  # UPDATED: Scale factor instead of std
         self.swap_rb = True
@@ -59,7 +59,8 @@ class DetectionConfig:
 
         # ===== OUTPUT OPTIONS =====
         self.save_annotated_video = True
-        self.save_frames = True  # Save individual frames
+        self.save_frames = True  # Save individual frames with bounding boxes
+        self.save_original_frames = True  # Save original frames without bounding boxes
         self.save_json = True  # Save detection metadata
 
 
@@ -99,6 +100,12 @@ class VideoTextDetector:
             if not os.path.exists(self.frames_json_dir):
                 os.makedirs(self.frames_json_dir)
             print(f"✓ Frames/JSON directory: {self.frames_json_dir}")
+
+        if self.config.save_original_frames:
+            self.original_frames_dir = os.path.join(self.config.output_dir, "original_frames")
+            if not os.path.exists(self.original_frames_dir):
+                os.makedirs(self.original_frames_dir)
+            print(f"✓ Original frames directory: {self.original_frames_dir}")
 
         print(f"✓ Output directory: {self.config.output_dir}")
 
@@ -210,8 +217,8 @@ class VideoTextDetector:
                     out.write(annotated_frame)
 
                 # Save frame and metadata (if enabled)
-                if self.config.save_frames or self.config.save_json:
-                    self._save_frame_outputs(annotated_frame, metadata, processed_count)
+                if self.config.save_frames or self.config.save_json or self.config.save_original_frames:
+                    self._save_frame_outputs(annotated_frame, frame, metadata, processed_count)
 
                 processed_count += 1
 
@@ -236,6 +243,8 @@ class VideoTextDetector:
             print(f"✓ Annotated video: {output_video_path}")
         if self.config.save_frames or self.config.save_json:
             print(f"✓ Frames and JSON: {self.frames_json_dir}")
+        if self.config.save_original_frames:
+            print(f"✓ Original frames: {self.original_frames_dir}")
 
         # STEP 5: Set frames processed and print detection statistics
         self.frames_processed = processed_count
@@ -330,23 +339,31 @@ class VideoTextDetector:
 
         return annotated_frame, metadata
 
-    def _save_frame_outputs(self, frame: np.ndarray, metadata: Dict[str, Any], frame_number: int):
+    def _save_frame_outputs(self, annotated_frame: np.ndarray, original_frame: np.ndarray,
+                           metadata: Dict[str, Any], frame_number: int):
         """
         Save frame image and JSON metadata
 
         Args:
-            frame: Annotated frame
+            annotated_frame: Frame with bounding boxes drawn
+            original_frame: Original frame without bounding boxes
             metadata: Detection metadata
             frame_number: Frame index
         """
         # Generate filenames
         base_filename = f"frame_{frame_number:05d}"
 
-        # Save frame image (if enabled)
+        # Save annotated frame image (if enabled)
         if self.config.save_frames:
             image_path = os.path.join(self.frames_json_dir, f"{base_filename}.jpg")
-            cv2.imwrite(image_path, frame)
+            cv2.imwrite(image_path, annotated_frame)
             metadata["image_path"] = image_path
+
+        # Save original frame without bounding boxes (if enabled)
+        if self.config.save_original_frames:
+            original_image_path = os.path.join(self.original_frames_dir, f"{base_filename}.jpg")
+            cv2.imwrite(original_image_path, original_frame)
+            metadata["original_image_path"] = original_image_path
 
         # Save JSON metadata (if enabled)
         if self.config.save_json:

@@ -115,7 +115,7 @@ class CVATExporter:
             task_info = {
                 "id": task.id,
                 "name": task.name,
-                "status": task.status.value,
+                "status": task.status,
                 "size": task.size,
                 "project_id": task.project_id if hasattr(task, 'project_id') else None
             }
@@ -149,8 +149,8 @@ class CVATExporter:
         print(f"  Frames: {task.size}")
 
         # Export annotations
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.zip') as tmp_file:
-            tmp_path = tmp_file.name
+        # Generate temp file path without creating the file
+        tmp_path = os.path.join(tempfile.gettempdir(), f"cvat_export_{task_id}_{int(time.time())}.zip")
 
         try:
             # Download annotations
@@ -159,25 +159,54 @@ class CVATExporter:
                 filename=tmp_path
             )
 
-            # Extract ZIP to get annotations.json
+            # Extract and process based on format
             with zipfile.ZipFile(tmp_path, 'r') as zip_ref:
-                # Look for annotations.json in the ZIP
-                json_file = None
-                for name in zip_ref.namelist():
-                    if name.endswith('annotations.json'):
-                        json_file = name
-                        break
+                files = zip_ref.namelist()
 
-                if not json_file:
-                    raise ValueError("annotations.json not found in exported archive")
+                # Determine the main annotation file based on format
+                annotation_file = None
 
-                # Extract annotations.json
-                with zip_ref.open(json_file) as source:
-                    annotations_data = json.load(source)
+                if "COCO" in format_name:
+                    # COCO format: look for instances_default.json or any .json in annotations/
+                    for name in files:
+                        if 'instances_default.json' in name or (name.endswith('.json') and 'annotations' in name):
+                            annotation_file = name
+                            break
 
-                # Save to output file
-                with open(output_file, 'w') as f:
-                    json.dump(annotations_data, f, indent=2)
+                    # If not found, try any .json file
+                    if not annotation_file:
+                        for name in files:
+                            if name.endswith('.json'):
+                                annotation_file = name
+                                break
+
+                elif "CVAT" in format_name:
+                    # CVAT format: look for annotations.xml or .json
+                    for name in files:
+                        if name.endswith('annotations.xml') or name.endswith('annotations.json'):
+                            annotation_file = name
+                            break
+
+                if not annotation_file:
+                    # List available files for debugging
+                    print(f"  Available files in archive: {files}")
+                    raise ValueError(f"No suitable annotation file found in exported archive for format '{format_name}'")
+
+                # Extract the annotation file
+                with zip_ref.open(annotation_file) as source:
+                    if annotation_file.endswith('.json'):
+                        # JSON format - read and re-save
+                        annotations_data = json.load(source)
+                        with open(output_file, 'w') as f:
+                            json.dump(annotations_data, f, indent=2)
+                    else:
+                        # XML or other format - copy as-is
+                        # Update output file extension if needed
+                        if annotation_file.endswith('.xml') and output_file.endswith('.json'):
+                            output_file = output_file.replace('.json', '.xml')
+
+                        with open(output_file, 'wb') as f:
+                            f.write(source.read())
 
             print(f"✓ Annotations exported to: {output_file}")
 
@@ -185,6 +214,63 @@ class CVATExporter:
             # Clean up temp file
             if os.path.exists(tmp_path):
                 os.unlink(tmp_path)
+
+    def export_dual_format(
+        self,
+        task_id: int,
+        cvat_output_dir: str,
+        coco_output_dir: str
+    ) -> Dict[str, Any]:
+        """
+        Export annotations in both CVAT and COCO formats.
+
+        Args:
+            task_id: Task ID to export
+            cvat_output_dir: Directory to save CVAT format annotations
+            coco_output_dir: Directory to save COCO format annotations
+
+        Returns:
+            Export statistics
+        """
+        # Connect if not already connected
+        if not self.client:
+            self.connect()
+
+        # Create output directories
+        os.makedirs(cvat_output_dir, exist_ok=True)
+        os.makedirs(coco_output_dir, exist_ok=True)
+
+        # Get task info
+        task = self.client.tasks.retrieve(task_id)
+        task_name = task.name
+
+        # Export CVAT format (will be .xml)
+        print("\n  Exporting CVAT format...")
+        cvat_annotation_file = os.path.join(cvat_output_dir, "annotations.xml")
+        self.export_task_annotations(
+            task_id,
+            cvat_annotation_file,
+            format_name="CVAT for images 1.1"
+        )
+
+        # Export COCO format (will be .json)
+        print("\n  Exporting COCO format...")
+        coco_annotation_file = os.path.join(coco_output_dir, "annotations.json")
+        self.export_task_annotations(
+            task_id,
+            coco_annotation_file,
+            format_name="COCO 1.0"
+        )
+
+        stats = {
+            "task_id": task_id,
+            "task_name": task_name,
+            "cvat_export": cvat_annotation_file,
+            "coco_export": coco_annotation_file,
+            "num_frames": task.size
+        }
+
+        return stats
 
     def export_and_convert(
         self,
@@ -344,7 +430,7 @@ class CVATExporter:
         info = {
             "id": task.id,
             "name": task.name,
-            "status": task.status.value,
+            "status": task.status,
             "size": task.size,
             "num_annotations": num_shapes,
             "url": f"{self.config['cvat_host']}/tasks/{task.id}"

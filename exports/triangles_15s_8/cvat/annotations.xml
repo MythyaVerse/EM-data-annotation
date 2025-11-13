@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>8</id>
+      <name>text_detection_triangles_15s</name>
+      <size>83</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2025-11-13 04:56:58.104758+00:00</created>
+      <updated>2025-11-13 05:15:23.199979+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>82</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>5</id>
+          <start>0</start>
+          <stop>82</stop>
+          <url>http://localhost:8080/api/jobs/5</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>ajinkya</username>
+        <email>ajinkyabhosale2004@gmail.com</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>diagram_label</name>
+          <color>#bf5243</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>paragraph_text</name>
+          <color>#3de385</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>header_text</name>
+          <color>#a1799a</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>equation_text</name>
+          <color>#851dfd</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>logo</name>
+          <color>#2acdcf</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>text</name>
+          <color>#7ba0c1</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </task>
+    <dumped>2025-11-13 05:17:07.925127+00:00</dumped>
+  </meta>
+  <image id="0" name="frame_00000.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1356.00,432.00;1356.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1697.00,174.00;1698.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="281.00,327.00;282.00,257.00;1104.00,261.00;1103.00,331.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,810.00;534.00,749.00;738.00,749.00;738.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="1" name="frame_00001.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1356.00,432.00;1356.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1697.00,174.00;1698.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="281.00,327.00;282.00,257.00;1104.00,261.00;1103.00,331.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,810.00;534.00,749.00;738.00,749.00;738.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="2" name="frame_00002.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1356.00,432.00;1356.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1697.00,174.00;1698.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="281.00,327.00;282.00,257.00;1104.00,261.00;1103.00,331.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,810.00;534.00,749.00;738.00,749.00;738.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="3" name="frame_00003.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,810.00;534.00,749.00;738.00,749.00;738.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="4" name="frame_00004.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,810.00;534.00,749.00;738.00,749.00;738.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="5" name="frame_00005.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,810.00;534.00,749.00;738.00,749.00;738.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="6" name="frame_00006.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,810.00;534.00,749.00;738.00,749.00;738.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="7" name="frame_00007.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="8" name="frame_00008.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="9" name="frame_00009.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="10" name="frame_00010.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="300.00,519.00;300.00,432.00;1380.00,432.00;1380.00,519.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="11" name="frame_00011.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="306.00,516.00;306.00,435.00;1379.00,435.00;1379.00,516.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="12" name="frame_00012.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="306.00,516.00;306.00,435.00;1379.00,435.00;1379.00,516.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,685.00;922.00,679.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="13" name="frame_00013.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="306.00,516.00;306.00,435.00;1379.00,435.00;1379.00,516.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,685.00;922.00,679.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="14" name="frame_00014.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="306.00,516.00;306.00,435.00;1379.00,435.00;1379.00,516.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="293.00,179.00;1691.00,174.00;1692.00,219.00;294.00,223.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="282.00,327.00;282.00,259.00;1104.00,259.00;1104.00,327.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="384.00,644.00;384.00,563.00;1074.00,563.00;1074.00,644.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,37.00;294.00,37.00;294.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="311.00,995.00;312.00,959.00;936.00,964.00;935.00,1000.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="538.00,686.00;922.00,681.00;924.00,724.00;541.00,730.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="534.00,749.00;732.00,749.00;732.00,810.00;534.00,810.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="15" name="frame_00015.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="16" name="frame_00016.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="17" name="frame_00017.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="18" name="frame_00018.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="19" name="frame_00019.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="20" name="frame_00020.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="21" name="frame_00021.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="22" name="frame_00022.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="23" name="frame_00023.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="24" name="frame_00024.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="25" name="frame_00025.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="26" name="frame_00026.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="27" name="frame_00027.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="28" name="frame_00028.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="29" name="frame_00029.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="30" name="frame_00030.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="31" name="frame_00031.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="32" name="frame_00032.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="33" name="frame_00033.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="34" name="frame_00034.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="35" name="frame_00035.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="36" name="frame_00036.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="37" name="frame_00037.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="38" name="frame_00038.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="39" name="frame_00039.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="40" name="frame_00040.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,918.00;1236.00,918.00;1236.00,978.00;348.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,907.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="41" name="frame_00041.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="42" name="frame_00042.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="43" name="frame_00043.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="44" name="frame_00044.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="45" name="frame_00045.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="46" name="frame_00046.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="47" name="frame_00047.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="48" name="frame_00048.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="49" name="frame_00049.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="234.00,273.00;234.00,229.00;1745.00,229.00;1745.00,273.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="221.00,290.00;1595.00,285.00;1596.00,329.00;222.00,333.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="348.00,978.00;348.00,918.00;1236.00,918.00;1236.00,978.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="376.00,898.00;378.00,842.00;1123.00,851.00;1121.00,906.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="36.00,158.00;36.00,43.00;288.00,43.00;288.00,158.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="780.00,131.00;780.00,77.00;1134.00,77.00;1134.00,131.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="50" name="frame_00050.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="203.00,431.00;204.00,341.00;1008.00,345.00;1007.00,435.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="246.00,563.00;246.00,475.00;972.00,475.00;972.00,563.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;801.00,72.00;1070.00,80.00;1065.00,137.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="51" name="frame_00051.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="203.00,431.00;204.00,341.00;1008.00,345.00;1007.00,435.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="246.00,563.00;246.00,475.00;972.00,475.00;972.00,563.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="52" name="frame_00052.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="203.00,431.00;204.00,341.00;1008.00,345.00;1007.00,435.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="246.00,563.00;246.00,475.00;972.00,475.00;972.00,563.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;801.00,72.00;1070.00,80.00;1065.00,137.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="53" name="frame_00053.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,432.00;204.00,344.00;996.00,344.00;996.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;934.00,469.00;938.00,558.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;801.00,72.00;1070.00,80.00;1065.00,137.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="54" name="frame_00054.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,432.00;204.00,344.00;996.00,344.00;996.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;934.00,469.00;938.00,558.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;801.00,72.00;1070.00,80.00;1065.00,137.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="55" name="frame_00055.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="56" name="frame_00056.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="798.00,135.00;798.00,81.00;1068.00,81.00;1068.00,135.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="57" name="frame_00057.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="58" name="frame_00058.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="59" name="frame_00059.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="60" name="frame_00060.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="61" name="frame_00061.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="62" name="frame_00062.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="63" name="frame_00063.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="64" name="frame_00064.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="204.00,344.00;996.00,344.00;996.00,432.00;204.00,432.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="243.00,479.00;933.00,469.00;938.00,557.00;247.00,568.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="216.00,182.00;1512.00,182.00;1512.00,226.00;216.00,226.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,37.00;300.00,37.00;300.00,168.00;30.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="796.00,130.00;800.00,75.00;1070.00,81.00;1066.00,136.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="474.00,803.00;474.00,739.00;678.00,739.00;678.00,803.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="65" name="frame_00065.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="492.00,351.00;750.00,351.00;750.00,408.00;492.00,408.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="66" name="frame_00066.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="492.00,351.00;750.00,351.00;750.00,408.00;492.00,408.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="67" name="frame_00067.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="492.00,351.00;750.00,351.00;750.00,408.00;492.00,408.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="68" name="frame_00068.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="422.00,548.00;427.00,437.00;1076.00,445.00;1071.00,557.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,270.00;834.00,270.00;834.00,324.00;444.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,406.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="69" name="frame_00069.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="422.00,548.00;427.00,437.00;1076.00,445.00;1071.00,557.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,270.00;834.00,270.00;834.00,324.00;444.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,406.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="70" name="frame_00070.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1049.00,462.00;1032.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="71" name="frame_00071.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1049.00,462.00;1032.00,571.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="72" name="frame_00072.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1049.00,462.00;1032.00,571.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="73" name="frame_00073.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="74" name="frame_00074.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="75" name="frame_00075.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="76" name="frame_00076.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="77" name="frame_00077.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="78" name="frame_00078.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="79" name="frame_00079.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="80" name="frame_00080.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="81" name="frame_00081.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+  <image id="82" name="frame_00082.jpg" width="1920" height="1080">
+    <polygon label="text" source="file" occluded="0" points="414.00,541.00;431.00,431.00;1055.00,462.00;1038.00,572.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="203.00,199.00;1157.00,191.00;1158.00,237.00;204.00,245.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="30.00,168.00;30.00,33.00;300.00,33.00;300.00,168.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="444.00,324.00;444.00,270.00;834.00,270.00;834.00,324.00" z_order="0">
+    </polygon>
+    <polygon label="text" source="file" occluded="0" points="501.00,355.00;754.00,348.00;759.00,407.00;506.00,413.00" z_order="0">
+    </polygon>
+  </image>
+</annotations>

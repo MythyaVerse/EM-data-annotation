@@ -1,0 +1,10 @@
+{
+  "video_name": "triangles_15s",
+  "task_id": 8,
+  "task_name": "text_detection_triangles_15s",
+  "export_base_dir": "exports\\triangles_15s_8",
+  "cvat_export": "exports\\triangles_15s_8\\cvat\\annotations.xml",
+  "coco_export": "exports\\triangles_15s_8\\coco\\annotations.json",
+  "num_frames": 83,
+  "workflow_stage": "exported_from_cvat"
+}
