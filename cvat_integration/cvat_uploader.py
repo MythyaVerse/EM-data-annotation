@@ -21,6 +21,8 @@ except ImportError:
     print("WARNING: cvat-sdk not installed. Install with: pip install cvat-sdk")
     make_client = None
     ResourceType = None
+    Task = None
+    Project = None
 
 
 class CVATUploader:
@@ -87,7 +89,7 @@ class CVATUploader:
     def get_or_create_project(
         self,
         project_name: Optional[str] = None
-    ) -> Project:
+    ) -> "Project":
         """
         Get existing project or create new one.
 
@@ -152,7 +154,7 @@ class CVATUploader:
         task_name: str,
         frames_dir: str,
         project_id: Optional[int] = None
-    ) -> Task:
+    ) -> "Task":
         """
         Create a new annotation task in CVAT.
 
@@ -250,11 +252,19 @@ class CVATUploader:
             timeout: Maximum wait time in seconds
         """
         start_time = time.time()
+        last_status = None
 
         while time.time() - start_time < timeout:
             task = self.client.tasks.retrieve(task_id)
 
-            if task.status == "completed":
+            # Show status changes
+            if task.status != last_status:
+                elapsed = time.time() - start_time
+                print(f"  Task status: {task.status} (elapsed: {elapsed:.1f}s)")
+                last_status = task.status
+
+            # Task is ready when it's in annotation, validation, or completed status
+            if task.status in ["annotation", "validation", "completed"]:
                 print("  ✓ Task ready")
                 return
 
@@ -289,11 +299,40 @@ class CVATUploader:
         # Get task
         task = self.client.tasks.retrieve(task_id)
 
-        # Upload annotations
-        task.import_annotations(
-            format_name="CVAT 1.1",
-            filename=annotations_file
-        )
+        # Get label mapping from task (label name -> label ID)
+        labels = task.get_labels()
+        label_map = {label.name: label.id for label in labels}
+
+        # Build attribute mapping (label_id -> {attribute_name -> attribute_id})
+        attr_map = {}
+        for label in labels:
+            attr_map[label.id] = {attr.name: attr.id for attr in label.attributes}
+
+        # Convert label names to label IDs and fix attributes format in shapes
+        for shape in annotations.get("shapes", []):
+            if "label" in shape and shape["label"] in label_map:
+                label_id = label_map[shape["label"]]
+                shape["label_id"] = label_id
+
+                # Convert attributes from dict to list format
+                if "attributes" in shape and isinstance(shape["attributes"], dict):
+                    attr_list = []
+                    for attr_name, attr_value in shape["attributes"].items():
+                        if attr_name in attr_map.get(label_id, {}):
+                            attr_list.append({
+                                "spec_id": attr_map[label_id][attr_name],
+                                "value": str(attr_value)
+                            })
+                    shape["attributes"] = attr_list
+                elif "attributes" not in shape:
+                    shape["attributes"] = []
+
+            elif "label" in shape:
+                raise ValueError(f"Unknown label: {shape['label']}. Available labels: {list(label_map.keys())}")
+
+        # Upload annotations using CVAT JSON format directly via API
+        # The annotations JSON is already in CVAT format, so we can patch it directly
+        task.update_annotations(annotations)
 
         num_shapes = len(annotations.get("shapes", []))
         print(f"✓ Uploaded {num_shapes} pre-annotations")
@@ -341,7 +380,7 @@ class CVATUploader:
             "project_id": project.id,
             "project_name": project.name,
             "url": f"{self.config['cvat_host']}/tasks/{task.id}",
-            "num_frames": len(task.data)
+            "num_frames": task.size
         }
 
 

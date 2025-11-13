@@ -100,11 +100,32 @@ class CVATWorkflow:
         # Step 3: Upload to CVAT
         print("\n[STEP 2/3] Uploading to CVAT...")
 
+        # Check if COCO format annotations exist
+        coco_annotations_file = os.path.join(detection_output_dir, "coco_format", "annotations.json")
+        has_coco_annotations = os.path.exists(coco_annotations_file)
+
+        if has_coco_annotations:
+            print(f"  ✓ Found COCO format annotations: {coco_annotations_file}")
+
         upload_result = self.uploader.create_complete_task(
             task_name=task_name,
             frames_dir=original_frames_dir,
             annotations_file=cvat_annotations_file
         )
+
+        # Upload COCO annotations if they exist
+        if has_coco_annotations:
+            print(f"\n  Uploading COCO format annotations...")
+            try:
+                task = self.uploader.client.tasks.retrieve(upload_result["task_id"])
+                task.import_annotations(
+                    format_name="COCO 1.0",
+                    filename=coco_annotations_file
+                )
+                print(f"  ✓ COCO annotations uploaded successfully")
+            except Exception as e:
+                print(f"  ⚠ Warning: Could not upload COCO annotations: {e}")
+                print(f"    CVAT format annotations were uploaded successfully")
 
         # Step 3: Save workflow metadata
         print("\n[STEP 3/3] Saving workflow metadata...")
@@ -116,6 +137,8 @@ class CVATWorkflow:
             "task_name": upload_result["task_name"],
             "task_url": upload_result["url"],
             "cvat_annotations_file": cvat_annotations_file,
+            "coco_annotations_file": coco_annotations_file if has_coco_annotations else None,
+            "coco_annotations_uploaded": has_coco_annotations,
             "workflow_stage": "uploaded_to_cvat",
             "next_step": "Human correction in CVAT"
         }
@@ -133,6 +156,8 @@ class CVATWorkflow:
         print(f"Task ID: {upload_result['task_id']}")
         print(f"Task Name: {upload_result['task_name']}")
         print(f"URL: {upload_result['url']}")
+        if has_coco_annotations:
+            print(f"COCO Annotations: Uploaded ✓")
         print(f"\nNext Steps:")
         print(f"1. Open URL in browser: {upload_result['url']}")
         print(f"2. Review and correct annotations in CVAT")

@@ -48,7 +48,7 @@ class DetectionConfig:
         self.swap_rb = True
 
         # ===== VIDEO SAMPLING =====
-        self.target_fps = 5  # Process video at 5 FPS (sample frames)
+        self.target_fps = 3  # Process video at 3 FPS (sample frames)
         self.max_frames = None  # Set to None for all frames, or number for limit
 
         # ===== VISUALIZATION =====
