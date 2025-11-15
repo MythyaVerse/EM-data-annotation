@@ -49,7 +49,7 @@ LABEL_MAPPING = {
 
     # Visual elements
     'figure': 'figure',
-    'image': 'figure',
+    'image': 'image',
     'figure_caption': 'figure_caption',
     'chart': 'chart',
     'table': 'table',
@@ -83,6 +83,7 @@ LABEL_COLORS = {
 
     # Visual elements
     'figure': (255, 0, 255),       # Magenta
+    'image': (255, 50, 255),       # Light Magenta
     'figure_caption': (200, 0, 200),# Dark Magenta
     'chart': (255, 100, 180),      # Pink
     'table': (0, 165, 255),        # Orange
