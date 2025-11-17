@@ -33,71 +33,47 @@ EXTRACTION_CONFIG = {
     'use_formula_res_list': True,      # Formula detections with LaTeX
 }
 
-# Comprehensive label mapping: ALL PP-Structure labels → Your desired labels
+# Comprehensive label mapping: ALL PP-Structure labels → Final 10 classes
 LABEL_MAPPING = {
-    # Text elements
+    # Text elements - map to final classes
     'text': 'text',
     'paragraph': 'paragraph',
     'title': 'title',
-    'header': 'header',
-    'footer': 'footer',
-    'reference': 'reference',
-    'page_number': 'page_number',
-    'footnote': 'footnote',
-    'code': 'code',
+    'header': 'text',           # Header → text
+    'footer': 'text',           # Footer → text
+    'reference': 'text',        # Reference → text
+    'page_number': 'text',      # Page number → text
+    'footnote': 'text',         # Footnote → text
+    'code': 'text',             # Code → text
     'list': 'list',
 
-    # Visual elements
+    # Visual elements - map to final classes
     'figure': 'figure',
     'image': 'image',
-    'figure_caption': 'figure_caption',
-    'chart': 'chart',
+    'figure_caption': 'text', # Figure caption → figure
+    'chart': 'figure',          # Chart → figure
     'table': 'table',
-    'table_caption': 'table_caption',
+    'table_caption': 'text',   # Table caption → table
 
-    # Mathematical elements
+    # Mathematical elements - map to equation
     'equation': 'equation',
-    'formula': 'formula',
-
-    # Special elements
-    'seal': 'seal',
-    'stamp': 'stamp',
+    'formula': 'equation',      # Formula → equation
 
     # Fallback
     'unknown': 'unknown',
 }
 
-# Color scheme for visualization (BGR format for OpenCV)
+# Color scheme for visualization (BGR format for OpenCV) - Final 10 classes only
 LABEL_COLORS = {
-    # Text elements
+    'title': (255, 0, 0),          # Blue
     'text': (0, 255, 0),           # Green
     'paragraph': (0, 200, 0),      # Light Green
-    'title': (255, 0, 0),          # Blue
-    'header': (200, 0, 100),       # Dark Blue
-    'footer': (150, 0, 150),       # Purple
-    'reference': (0, 150, 150),    # Teal
-    'page_number': (100, 100, 100),# Gray
-    'footnote': (0, 100, 200),     # Brown
-    'code': (200, 200, 0),         # Cyan
-    'list': (50, 200, 50),         # Light Green
-
-    # Visual elements
-    'figure': (255, 0, 255),       # Magenta
-    'image': (255, 50, 255),       # Light Magenta
-    'figure_caption': (200, 0, 200),# Dark Magenta
-    'chart': (255, 100, 180),      # Pink
-    'table': (0, 165, 255),        # Orange
-    'table_caption': (0, 130, 200),# Dark Orange
-
-    # Mathematical elements
+    'list': (50, 200, 50),         # Bright Green
     'equation': (0, 255, 255),     # Yellow
-    'formula': (50, 220, 220),     # Light Yellow
-
-    # Special elements
-    'seal': (128, 0, 128),         # Purple
-    'stamp': (180, 0, 180),        # Light Purple
-
-    # Fallback
+    'table': (0, 165, 255),        # Orange
+    'image': (255, 50, 255),       # Light Magenta
+    'figure': (255, 0, 255),       # Magenta
+    'logo': (128, 0, 128),         # Purple
     'unknown': (128, 128, 128),    # Medium Gray
 }
 
@@ -661,30 +637,19 @@ def process_video(video_path, output_dir, fps_extract=1):
     with open(annotations_json_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    # Save classes.txt
+    # Save classes.txt - Final 10 classes only
     classes_txt_path = os.path.join(output_dir, "classes.txt")
     classes = [
+        "title",
         "text",
         "paragraph",
-        "title",
-        "header",
-        "footer",
-        "reference",
-        "page_number",
-        "footnote",
-        "code",
         "list",
-        "figure",
-        "image",
-        "figure_caption",
-        "chart",
-        "table",
-        "table_caption",
         "equation",
-        "formula",
-        "seal",
-        "unknown",
-        "paragraph_title"
+        "table",
+        "image",
+        "figure",
+        "logo",
+        "unknown"
     ]
     with open(classes_txt_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(classes))
