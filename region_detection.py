@@ -643,6 +643,7 @@ def process_video(video_path, output_dir, fps_extract=1):
         "title",
         "text",
         "paragraph",
+        "paragraph_title",
         "list",
         "equation",
         "table",
@@ -718,7 +719,7 @@ def main():
         "-f",
         type=int,
         default=1,
-        help="Extract frames at this FPS (default: 1 frame per second)"
+        help=f"Extract frames at this FPS (default: 1 frame per second)"
     )
 
     args = parser.parse_args()
