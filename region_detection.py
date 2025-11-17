@@ -33,41 +33,57 @@ EXTRACTION_CONFIG = {
     'use_formula_res_list': True,      # Formula detections with LaTeX
 }
 
-# Comprehensive label mapping: ALL PP-Structure labels → Final 10 classes
+# Comprehensive label mapping: ALL PP-Structure labels → Final 11 classes
 LABEL_MAPPING = {
+    # Title elements
+    'title': 'title',
+    'document_title': 'title',       # Document title → title
+    'paragraph_title': 'paragraph_title',  # Paragraph title → paragraph_title
+
     # Text elements - map to final classes
     'text': 'text',
     'paragraph': 'paragraph',
-    'title': 'title',
-    'header': 'text',           # Header → text
-    'footer': 'text',           # Footer → text
-    'reference': 'text',        # Reference → text
-    'page_number': 'text',      # Page number → text
-    'footnote': 'text',         # Footnote → text
-    'code': 'text',             # Code → text
+    'abstract': 'text',              # Abstract → text
+    'header': 'text',                # Header → text
+    'footer': 'text',                # Footer → text
+    'reference': 'text',             # Reference → text
+    'references': 'text',            # References → text
+    'page_number': 'text',           # Page number → text
+    'footnote': 'text',              # Footnote → text
+    'footnotes': 'text',             # Footnotes → text
+    'code': 'text',                  # Code → text
+    'algorithm': 'text',             # Algorithm → text
+    'sidebar_text': 'text',          # Sidebar text → text
+    'figure_table_title': 'text',    # Figure/table title → text
+    'formula_number': 'text',        # Formula number → text
+
+    # List elements
     'list': 'list',
+    'lists': 'list',                 # Lists → list
 
     # Visual elements - map to final classes
     'figure': 'figure',
     'image': 'image',
-    'figure_caption': 'text', # Figure caption → figure
-    'chart': 'figure',          # Chart → figure
+    'figure_caption': 'text',        # Figure caption → text
+    'chart': 'figure',               # Chart → figure
     'table': 'table',
-    'table_caption': 'text',   # Table caption → table
+    'table_caption': 'text',         # Table caption → text
+    'seal': 'logo',                  # Seal → logo
 
     # Mathematical elements - map to equation
     'equation': 'equation',
-    'formula': 'equation',      # Formula → equation
+    'formula': 'equation',           # Formula → equation
 
     # Fallback
     'unknown': 'unknown',
 }
 
-# Color scheme for visualization (BGR format for OpenCV) - Final 10 classes only
+# Color scheme for visualization (BGR format for OpenCV) - Final 11 classes
 LABEL_COLORS = {
     'title': (255, 0, 0),          # Blue
     'text': (0, 255, 0),           # Green
     'paragraph': (0, 200, 0),      # Light Green
+    'paragraph_title': (0, 180, 0),# Dark Green
     'list': (50, 200, 50),         # Bright Green
     'equation': (0, 255, 255),     # Yellow
     'table': (0, 165, 255),        # Orange
@@ -637,7 +653,7 @@ def process_video(video_path, output_dir, fps_extract=1):
     with open(annotations_json_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    # Save classes.txt - Final 10 classes only
+    # Save classes.txt - Final 11 classes
     classes_txt_path = os.path.join(output_dir, "classes.txt")
     classes = [
         "title",
