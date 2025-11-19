@@ -20,12 +20,12 @@
 ### 1. Pull PaddleOCR Docker Image
 
 ```bash
-docker pull paddlepaddle/paddle:latest-gpu-cuda11.7-cudnn8
+docker pull paddlepaddle/paddle:3.2.2-gpu-cuda11.8-cudnn8.9
 ```
 
 Or for CUDA 12.x:
 ```bash
-docker pull paddlepaddle/paddle:latest-gpu-cuda12.0-cudnn8
+docker pull registry.baidubce.com/paddlepaddle/paddle:3.2.2-gpu-cuda12.6-cudnn9.5-trt10.5
 ```
 
 ### 2. Install NVIDIA Container Toolkit (if not installed)
@@ -37,19 +37,28 @@ wsl --install
 
 **Linux:**
 ```bash
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+# 1. Add the NVIDIA package repository
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+  sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+# 2. Update package lists
+sudo apt-get update
+
+# 3. Install NVIDIA Container Toolkit
+sudo apt-get install -y nvidia-container-toolkit
+
+# 4. Configure Docker to use the NVIDIA runtime
+sudo nvidia-ctk runtime configure --runtime=docker
+
+# 5. Restart Docker
 sudo systemctl restart docker
 ```
 
 ### 3. Run Docker Container
 
 ```bash
-docker run --gpus all -it --rm \
-  -v "d:\Projects\Data Annotation Tool:/workspace" \
-  paddlepaddle/paddle:latest-gpu-cuda11.7-cudnn8 /bin/bash
+docker run --gpus all -it -v "$(pwd)":/workspace paddlepaddle/paddle:3.2.2-gpu-cuda11.8-cudnn8.9 bash
 ```
 
 ### 4. Install Dependencies (inside container)
