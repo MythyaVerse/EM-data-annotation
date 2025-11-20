@@ -779,8 +779,8 @@ def main():
         "--fps",
         "-f",
         type=int,
-        default=1,
-        help="Extract frames at this FPS (default: 1 frame per second)"
+        default=5,
+        help="Extract frames at this FPS (default: 5 frame per second)"
     )
 
     args = parser.parse_args()
