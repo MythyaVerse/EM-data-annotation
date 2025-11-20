@@ -1,9 +1,9 @@
 """
-PP-StructureV3 Batch Video Annotation Pipeline with X-AnyLabeling Export
+PP-StructureV3 Video Annotation Pipeline with X-AnyLabeling Export
 
-This script processes ALL videos in the data/ directory sequentially with PaddleOCR's
-PP-StructureV3, extracts frames, detects layout elements, and exports annotations in
-X-AnyLabeling format for easy correction and refinement.
+This script processes videos with PaddleOCR's PP-StructureV3, extracts frames,
+detects layout elements, and exports annotations in X-AnyLabeling format for
+easy correction and refinement.
 
 Usage:
     python batch_process_videos.py
@@ -13,6 +13,7 @@ import os
 import json
 import cv2
 import numpy as np
+import argparse
 import base64
 import time
 from pathlib import Path
@@ -24,12 +25,6 @@ from paddleocr import PPStructureV3
 # CONFIGURATION
 # ============================================================================
 
-# Default FPS for batch processing
-DEFAULT_FPS = 5
-
-# Supported video formats
-VIDEO_EXTENSIONS = ['.mp4', '.avi', '.mov', '.mkv', '.flv', '.wmv', '.webm']
-
 # Extraction strategy: which PP-Structure data sources to use
 EXTRACTION_CONFIG = {
     'use_parsing_res_list': True,      # High-level parsed blocks (RECOMMENDED)
@@ -38,63 +33,71 @@ EXTRACTION_CONFIG = {
     'use_formula_res_list': True,      # Formula detections with LaTeX
 }
 
-# Comprehensive label mapping: ALL PP-Structure labels → Final 11 classes
+# Comprehensive label mapping: ALL PP-Structure labels → Your desired labels
 LABEL_MAPPING = {
-    # Title elements
-    'title': 'title',
-    'document_title': 'title',       # Document title → title
-    'paragraph_title': 'paragraph_title',  # Paragraph title → paragraph_title
-
-    # Text elements - map to final classes
+    # Text elements
     'text': 'text',
     'paragraph': 'paragraph',
-    'abstract': 'text',              # Abstract → text
-    'header': 'text',                # Header → text
-    'footer': 'text',                # Footer → text
-    'reference': 'text',             # Reference → text
-    'references': 'text',            # References → text
-    'page_number': 'text',           # Page number → text
-    'footnote': 'text',              # Footnote → text
-    'footnotes': 'text',             # Footnotes → text
-    'code': 'text',                  # Code → text
-    'algorithm': 'text',             # Algorithm → text
-    'sidebar_text': 'text',          # Sidebar text → text
-    'figure_table_title': 'text',    # Figure/table title → text
-    'formula_number': 'text',        # Formula number → text
-
-    # List elements
+    'title': 'title',
+    'header': 'header',
+    'footer': 'footer',
+    'reference': 'reference',
+    'page_number': 'page_number',
+    'footnote': 'footnote',
+    'code': 'code',
     'list': 'list',
-    'lists': 'list',                 # Lists → list
 
-    # Visual elements - map to final classes
+    # Visual elements
     'figure': 'figure',
     'image': 'image',
-    'figure_caption': 'text',        # Figure caption → text
-    'chart': 'figure',               # Chart → figure
+    'figure_caption': 'figure_caption',
+    'chart': 'chart',
     'table': 'table',
-    'table_caption': 'text',         # Table caption → text
-    'seal': 'logo',                  # Seal → logo
+    'table_caption': 'table_caption',
 
-    # Mathematical elements - map to equation
+    # Mathematical elements
     'equation': 'equation',
-    'formula': 'equation',           # Formula → equation
+    'formula': 'formula',
+
+    # Special elements
+    'seal': 'seal',
+    'stamp': 'stamp',
 
     # Fallback
     'unknown': 'unknown',
 }
 
-# Color scheme for visualization (BGR format for OpenCV) - Final 11 classes
+# Color scheme for visualization (BGR format for OpenCV)
 LABEL_COLORS = {
-    'title': (255, 0, 0),          # Blue
+    # Text elements
     'text': (0, 255, 0),           # Green
     'paragraph': (0, 200, 0),      # Light Green
-    'paragraph_title': (0, 180, 0),# Dark Green
-    'list': (50, 200, 50),         # Bright Green
-    'equation': (0, 255, 255),     # Yellow
-    'table': (0, 165, 255),        # Orange
-    'image': (255, 50, 255),       # Light Magenta
+    'title': (255, 0, 0),          # Blue
+    'header': (200, 0, 100),       # Dark Blue
+    'footer': (150, 0, 150),       # Purple
+    'reference': (0, 150, 150),    # Teal
+    'page_number': (100, 100, 100),# Gray
+    'footnote': (0, 100, 200),     # Brown
+    'code': (200, 200, 0),         # Cyan
+    'list': (50, 200, 50),         # Light Green
+
+    # Visual elements
     'figure': (255, 0, 255),       # Magenta
-    'logo': (128, 0, 128),         # Purple
+    'image': (255, 50, 255),       # Light Magenta
+    'figure_caption': (200, 0, 200),# Dark Magenta
+    'chart': (255, 100, 180),      # Pink
+    'table': (0, 165, 255),        # Orange
+    'table_caption': (0, 130, 200),# Dark Orange
+
+    # Mathematical elements
+    'equation': (0, 255, 255),     # Yellow
+    'formula': (50, 220, 220),     # Light Yellow
+
+    # Special elements
+    'seal': (128, 0, 128),         # Purple
+    'stamp': (180, 0, 180),        # Light Purple
+
+    # Fallback
     'unknown': (128, 128, 128),    # Medium Gray
 }
 
@@ -458,7 +461,7 @@ def draw_annotations_on_frame(frame, annotations, label_colors):
 # VIDEO PROCESSING
 # ============================================================================
 
-def process_video(video_path, output_dir, fps_extract=5):
+def process_video(video_path, output_dir, fps_extract=1):
     """
     Process video: extract frames, run PP-Structure, export to X-AnyLabeling format.
 
@@ -658,20 +661,30 @@ def process_video(video_path, output_dir, fps_extract=5):
     with open(annotations_json_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    # Save classes.txt - Final 11 classes
+    # Save classes.txt
     classes_txt_path = os.path.join(output_dir, "classes.txt")
     classes = [
-        "title",
         "text",
         "paragraph",
-        "paragraph_title",
+        "title",
+        "header",
+        "footer",
+        "reference",
+        "page_number",
+        "footnote",
+        "code",
         "list",
-        "equation",
-        "table",
-        "image",
         "figure",
-        "logo",
-        "unknown"
+        "image",
+        "figure_caption",
+        "chart",
+        "table",
+        "table_caption",
+        "equation",
+        "formula",
+        "seal",
+        "unknown",
+        "paragraph_title"
     ]
     with open(classes_txt_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(classes))
@@ -722,148 +735,143 @@ def process_video(video_path, output_dir, fps_extract=5):
 
 
 # ============================================================================
-# BATCH PROCESSING
+# MAIN
 # ============================================================================
 
-def find_videos_in_directory(directory):
-    """Find all video files in the specified directory."""
+def get_video_files(directory):
+    """
+    Get all video files from a directory.
+
+    Args:
+        directory: Directory path to scan for videos
+
+    Returns:
+        List of video file paths
+    """
+    video_extensions = {'.mp4', '.avi', '.mov', '.mkv', '.flv', '.wmv', '.m4v', '.webm'}
     video_files = []
 
-    if not os.path.exists(directory):
+    if not os.path.isdir(directory):
         return video_files
 
     for file in os.listdir(directory):
         file_path = os.path.join(directory, file)
         if os.path.isfile(file_path):
-            ext = os.path.splitext(file)[1].lower()
-            if ext in VIDEO_EXTENSIONS:
+            _, ext = os.path.splitext(file)
+            if ext.lower() in video_extensions:
                 video_files.append(file)
 
     return sorted(video_files)
 
 
-def batch_process_all_videos(data_dir="data", output_base_dir="./output_video", fps_extract=DEFAULT_FPS):
-    """
-    Process all videos in the data directory sequentially.
+def main():
+    parser = argparse.ArgumentParser(
+        description="PP-StructureV3 Video Annotation Pipeline with X-AnyLabeling Export"
+    )
+    parser.add_argument(
+        "--video",
+        "-v",
+        required=False,
+        default=None,
+        help="Video filename (e.g., triangles.mp4). If not specified, all videos in data/ directory will be processed"
+    )
+    parser.add_argument(
+        "--fps",
+        "-f",
+        type=int,
+        default=1,
+        help="Extract frames at this FPS (default: 1 frame per second)"
+    )
 
-    Args:
-        data_dir: Directory containing video files
-        output_base_dir: Base directory for outputs
-        fps_extract: FPS for frame extraction
-    """
-    # Find all videos
-    video_files = find_videos_in_directory(data_dir)
+    args = parser.parse_args()
 
-    if not video_files:
-        print(f"\nNo video files found in '{data_dir}/' directory")
-        print(f"Supported formats: {', '.join(VIDEO_EXTENSIONS)}")
-        return
+    # Setup paths
+    data_dir = "MV-Multilingual-Text-Localization-Sample"
+    output_base_dir = "./output_video"
+
+    # Validate data directory exists
+    if not os.path.isdir(data_dir):
+        print(f"\n❌ Error: Data directory not found: {data_dir}")
+        print(f"Please create the '{data_dir}/' directory and place your videos there")
+        return 1
+
+    # Determine which videos to process
+    if args.video:
+        # Process single video specified by user
+        videos_to_process = [args.video]
+    else:
+        # Process all videos in data directory
+        videos_to_process = get_video_files(data_dir)
+        if not videos_to_process:
+            print(f"\n❌ Error: No video files found in '{data_dir}/' directory")
+            print(f"Supported formats: .mp4, .avi, .mov, .mkv, .flv, .wmv, .m4v, .webm")
+            return 1
 
     print("="*70)
-    print("PP-STRUCTUREV3 BATCH VIDEO ANNOTATION PIPELINE")
+    print("PP-STRUCTUREV3 VIDEO ANNOTATION PIPELINE")
     print("WITH X-ANYLABELING EXPORT")
     print("="*70)
     print(f"\nData directory: {data_dir}")
     print(f"Output directory: {output_base_dir}")
-    print(f"Extraction FPS: {fps_extract}")
-    print(f"\nFound {len(video_files)} video(s) to process:")
-    for i, video_file in enumerate(video_files, 1):
-        print(f"  {i}. {video_file}")
-    print()
+    print(f"Extraction FPS: {args.fps}")
+    print(f"Videos to process: {len(videos_to_process)}")
+    for i, video in enumerate(videos_to_process, 1):
+        print(f"  {i}. {video}")
 
     # Process each video
-    results = []
-    successful = 0
-    failed = 0
+    successful_count = 0
+    failed_videos = []
 
-    for i, video_file in enumerate(video_files, 1):
-        print("\n" + "="*70)
-        print(f"PROCESSING VIDEO {i}/{len(video_files)}: {video_file}")
-        print("="*70)
-
-        video_name = Path(video_file).stem
-        video_path = os.path.join(data_dir, video_file)
+    for idx, video_filename in enumerate(videos_to_process, 1):
+        video_name = Path(video_filename).stem
+        video_path = os.path.join(data_dir, video_filename)
         output_dir = os.path.join(output_base_dir, video_name)
 
+        # Validate video exists
+        if not os.path.exists(video_path):
+            print(f"\n[{idx}/{len(videos_to_process)}] ❌ Error: Video file not found: {video_path}")
+            failed_videos.append((video_filename, "File not found"))
+            continue
+
+        print("\n" + "="*70)
+        print(f"[{idx}/{len(videos_to_process)}] Processing: {video_filename}")
+        print("="*70)
+        print(f"Input video: {video_path}")
+        print(f"Output directory: {output_dir}")
+
         try:
-            video_output, annotations_output = process_video(
+            process_video(
                 video_path=video_path,
                 output_dir=output_dir,
-                fps_extract=fps_extract
+                fps_extract=args.fps
             )
 
-            results.append({
-                'video_file': video_file,
-                'status': 'success',
-                'output_dir': output_dir
-            })
-            successful += 1
-            print(f"\n✓ Successfully processed: {video_file}")
+            print(f"\n✅ Success! Outputs saved to: {output_dir}")
+            successful_count += 1
 
         except Exception as e:
-            results.append({
-                'video_file': video_file,
-                'status': 'failed',
-                'error': str(e)
-            })
-            failed += 1
-            print(f"\n✗ Failed to process {video_file}: {str(e)}")
+            print(f"\n❌ Error during processing: {str(e)}")
             import traceback
             traceback.print_exc()
+            failed_videos.append((video_filename, str(e)))
 
     # Print final summary
     print("\n" + "="*70)
     print("BATCH PROCESSING COMPLETE")
     print("="*70)
-    print(f"\nTotal videos: {len(video_files)}")
-    print(f"Successful: {successful}")
-    print(f"Failed: {failed}")
+    print(f"\nTotal videos: {len(videos_to_process)}")
+    print(f"Successful: {successful_count}")
+    print(f"Failed: {len(failed_videos)}")
 
-    if successful > 0:
-        print(f"\nSuccessfully processed videos:")
-        for result in results:
-            if result['status'] == 'success':
-                print(f"  ✓ {result['video_file']}")
-                print(f"    Output: {result['output_dir']}")
+    if failed_videos:
+        print("\nFailed videos:")
+        for video, error in failed_videos:
+            print(f"  ❌ {video}: {error}")
 
-    if failed > 0:
-        print(f"\nFailed videos:")
-        for result in results:
-            if result['status'] == 'failed':
-                print(f"  ✗ {result['video_file']}")
-                print(f"    Error: {result['error']}")
+    print(f"\nAll outputs saved to: {output_base_dir}/")
+    print("="*70)
 
-    print("="*70 + "\n")
-
-
-# ============================================================================
-# MAIN
-# ============================================================================
-
-def main():
-    """Main entry point for batch processing."""
-    data_dir = "data"
-    output_base_dir = "./output_video"
-
-    # Validate data directory exists
-    if not os.path.exists(data_dir):
-        print(f"\nError: Data directory not found: {data_dir}")
-        print(f"Please create the '{data_dir}/' directory and place your videos there")
-        return 1
-
-    try:
-        batch_process_all_videos(
-            data_dir=data_dir,
-            output_base_dir=output_base_dir,
-            fps_extract=DEFAULT_FPS
-        )
-        return 0
-
-    except Exception as e:
-        print(f"\nError during batch processing: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return 1
+    return 0 if successful_count > 0 else 1
 
 
 if __name__ == "__main__":
