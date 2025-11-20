@@ -4,7 +4,7 @@ Automated video annotation tool that extracts frames from videos, detects docume
 
 ## Features
 
-- Batch processes all videos in the `data/` directory
+- Batch processes all videos in the `/data` directory
 - Detects 11 document layout classes: title, text, paragraph, paragraph_title, list, equation, table, image, figure, logo, unknown
 - Exports frame-by-frame annotations in X-AnyLabeling JSON format
 - Creates annotated videos with bounding boxes
@@ -29,10 +29,10 @@ pip install paddleocr opencv-python numpy
 
 ## Usage
 
-1. Create a `data/` directory and add your videos:
+1. Place your videos in the `/data` directory:
 ```bash
-mkdir data
-# Copy your videos to data/
+# Ensure /data directory exists and copy your videos there
+# The script expects videos to be in /data/
 ```
 
 2. Run the batch processor:
@@ -44,9 +44,11 @@ python batch_process_videos.py
 
 ## Configuration
 
-Edit the following constants in the script:
+Edit the following in the script:
 
-- `DEFAULT_FPS = 5` - Frame extraction rate (frames per second)
+- **Input directory** (line 789): `data_dir = "/data"` - Change to your video source directory
+- **Output directory** (line 790): `output_base_dir = "./output_video"` - Change output location
+- **FPS extraction**: Use `--fps` argument (default: 1 frame per second)
 - `EXTRACTION_CONFIG` - Choose which PP-Structure data sources to use
 - `LABEL_MAPPING` - Customize label mappings
 
@@ -99,8 +101,9 @@ Processing time varies by video resolution and content complexity:
 
 ## Troubleshooting
 
-- **No GPU detected**: Modify `device="gpu:0"` to `device="cpu"` in [batch_process_videos.py:504](batch_process_videos.py#L504)
-- **Out of memory**: Reduce `DEFAULT_FPS` to extract fewer frames
+- **Data directory not found**: Ensure `/data` directory exists and contains videos, or modify `data_dir` on line 789
+- **No GPU detected**: Modify `device="gpu:0"` to `device="cpu"` in [batch_process_videos.py:507](batch_process_videos.py#L507)
+- **Out of memory**: Use `--fps` argument with lower value (e.g., `--fps 0.5` for 1 frame every 2 seconds)
 - **No annotations**: Enable debug mode by setting `debug=True` in extraction
 
 ## Related Files
