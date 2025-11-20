@@ -65,6 +65,7 @@ docker run --gpus all -it -v "$(pwd)":/workspace paddlepaddle/paddle:3.2.2-gpu-c
 
 ```bash
 pip install paddleocr paddlepaddle-gpu opencv-python-headless numpy
+pip install "paddlex[ocr]"
 ```
 
 ### 5. Setup Project Structure
