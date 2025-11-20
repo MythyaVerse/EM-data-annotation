@@ -786,7 +786,7 @@ def main():
     args = parser.parse_args()
 
     # Setup paths
-    data_dir = "MV-Multilingual-Text-Localization-Sample"
+    data_dir = "/data"
     output_base_dir = "./output_video"
 
     # Validate data directory exists
