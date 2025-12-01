@@ -33,72 +33,64 @@ EXTRACTION_CONFIG = {
     'use_formula_res_list': True,      # Formula detections with LaTeX
 }
 
-# Comprehensive label mapping: ALL PP-Structure labels → Your desired labels
+# Comprehensive label mapping: ALL PP-Structure labels → Final 4 classes
 LABEL_MAPPING = {
-    # Text elements
+    # Text elements - includes titles, paragraphs, tables, references, etc.
+    'title': 'text',
+    'document_title': 'text',
+    'doc_title': 'text',
+    'paragraph_title': 'text',
     'text': 'text',
-    'paragraph': 'paragraph',
-    'title': 'title',
-    'header': 'header',
-    'footer': 'footer',
-    'reference': 'reference',
-    'page_number': 'page_number',
-    'footnote': 'footnote',
-    'code': 'code',
-    'list': 'list',
+    'paragraph': 'text',
+    'number': 'text',
+    'abstract': 'text',
+    'content': 'text',
+    'figure_title': 'text',
+    'table': 'text',
+    'table_title': 'text',
+    'table_caption': 'text',
+    'reference': 'text',
+    'references': 'text',
+    'footnote': 'text',
+    'footnotes': 'text',
+    'header': 'text',
+    'footer': 'text',
+    'algorithm': 'text',
+    'chart_title': 'text',
+    'aside_text': 'text',
+    'sidebar_text': 'text',
+    'list': 'text',
+    'lists': 'text',
+    'code': 'text',
+    'page_number': 'text',
+    'figure_table_title': 'text',
+    'figure_caption': 'text',
 
-    # Visual elements
+    # Figure elements - includes images, charts, seals
+    'image': 'figure',
     'figure': 'figure',
-    'image': 'image',
-    'figure_caption': 'figure_caption',
-    'chart': 'chart',
-    'table': 'table',
-    'table_caption': 'table_caption',
+    'chart': 'figure',
+    'header_image': 'figure',
+    'footer_image': 'figure',
+    'seal': 'figure',
+    'logo': 'figure',
+    'stamp': 'figure',
 
-    # Mathematical elements
-    'equation': 'equation',
+    # Formula elements
     'formula': 'formula',
-
-    # Special elements
-    'seal': 'seal',
-    'stamp': 'stamp',
+    'formula_number': 'formula',
+    'equation': 'formula',
 
     # Fallback
     'unknown': 'unknown',
 }
 
-# Color scheme for visualization (BGR format for OpenCV)
+# Color scheme for visualization (BGR format for OpenCV) - Final 4 classes
 LABEL_COLORS = {
-    # Text elements
     'text': (0, 255, 0),           # Green
-    'paragraph': (0, 200, 0),      # Light Green
-    'title': (255, 0, 0),          # Blue
-    'header': (200, 0, 100),       # Dark Blue
-    'footer': (150, 0, 150),       # Purple
-    'reference': (0, 150, 150),    # Teal
-    'page_number': (100, 100, 100),# Gray
-    'footnote': (0, 100, 200),     # Brown
-    'code': (200, 200, 0),         # Cyan
-    'list': (50, 200, 50),         # Light Green
-
-    # Visual elements
+    'formula': (0, 255, 255),      # Yellow
     'figure': (255, 0, 255),       # Magenta
-    'image': (255, 50, 255),       # Light Magenta
-    'figure_caption': (200, 0, 200),# Dark Magenta
-    'chart': (255, 100, 180),      # Pink
-    'table': (0, 165, 255),        # Orange
-    'table_caption': (0, 130, 200),# Dark Orange
-
-    # Mathematical elements
-    'equation': (0, 255, 255),     # Yellow
-    'formula': (50, 220, 220),     # Light Yellow
-
-    # Special elements
-    'seal': (128, 0, 128),         # Purple
-    'stamp': (180, 0, 180),        # Light Purple
-
-    # Fallback
-    'unknown': (128, 128, 128),    # Medium Gray
+    'unknown': (128, 128, 128),    # Gray
 }
 
 
@@ -352,14 +344,14 @@ def extract_annotations(results, label_mapping, extraction_config, debug=False):
 
                     is_duplicate = False
                     for existing in annotations:
-                        if existing['label'] == 'equation' and existing['source'] == 'parsing_res_list':
+                        if existing['label'] == 'formula' and existing['source'] == 'parsing_res_list':
                             if boxes_overlap(existing['bbox'], bbox, threshold=0.7):
                                 is_duplicate = True
                                 break
 
                     if not is_duplicate:
                         annotations.append({
-                            'label': 'equation',
+                            'label': 'formula',
                             'bbox': bbox,
                             'confidence': 0.90,
                             'content': str(formula_text),
@@ -661,30 +653,13 @@ def process_video(video_path, output_dir, fps_extract=1):
     with open(annotations_json_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    # Save classes.txt
+    # Save classes.txt - Final 4 classes
     classes_txt_path = os.path.join(output_dir, "classes.txt")
     classes = [
         "text",
-        "paragraph",
-        "title",
-        "header",
-        "footer",
-        "reference",
-        "page_number",
-        "footnote",
-        "code",
-        "list",
-        "figure",
-        "image",
-        "figure_caption",
-        "chart",
-        "table",
-        "table_caption",
-        "equation",
         "formula",
-        "seal",
-        "unknown",
-        "paragraph_title"
+        "figure",
+        "unknown"
     ]
     with open(classes_txt_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(classes))
