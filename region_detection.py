@@ -6,7 +6,7 @@ detects layout elements, and exports annotations in X-AnyLabeling format for
 easy correction and refinement.
 
 Usage:
-    python video_auto_labelling_pp.py --video triangles.mp4
+    python region_detection.py --video triangles.mp4
 """
 
 import os
@@ -33,64 +33,63 @@ EXTRACTION_CONFIG = {
     'use_formula_res_list': True,      # Formula detections with LaTeX
 }
 
-# Comprehensive label mapping: ALL PP-Structure labels → Final 11 classes
+# Comprehensive label mapping: ALL PP-Structure labels → Final 4 classes
 LABEL_MAPPING = {
-    # Title elements
-    'title': 'title',
-    'document_title': 'title',       # Document title → title
-    'paragraph_title': 'paragraph_title',  # Paragraph title → paragraph_title
-
-    # Text elements - map to final classes
+    # Text elements - includes titles, paragraphs, tables, references, etc.
+    'title': 'text',
+    'document_title': 'text',
+    'doc_title': 'text',
+    'paragraph_title': 'text',
     'text': 'text',
-    'paragraph': 'paragraph',
-    'abstract': 'text',              # Abstract → text
-    'header': 'text',                # Header → text
-    'footer': 'text',                # Footer → text
-    'reference': 'text',             # Reference → text
-    'references': 'text',            # References → text
-    'page_number': 'text',           # Page number → text
-    'footnote': 'text',              # Footnote → text
-    'footnotes': 'text',             # Footnotes → text
-    'code': 'text',                  # Code → text
-    'algorithm': 'text',             # Algorithm → text
-    'sidebar_text': 'text',          # Sidebar text → text
-    'figure_table_title': 'text',    # Figure/table title → text
-    'formula_number': 'text',        # Formula number → text
+    'paragraph': 'text',
+    'number': 'text',
+    'abstract': 'text',
+    'content': 'text',
+    'figure_title': 'text',
+    'table': 'text',
+    'table_title': 'text',
+    'table_caption': 'text',
+    'reference': 'text',
+    'references': 'text',
+    'footnote': 'text',
+    'footnotes': 'text',
+    'header': 'text',
+    'footer': 'text',
+    'algorithm': 'text',
+    'chart_title': 'text',
+    'aside_text': 'text',
+    'sidebar_text': 'text',
+    'list': 'text',
+    'lists': 'text',
+    'code': 'text',
+    'page_number': 'text',
+    'figure_table_title': 'text',
+    'figure_caption': 'text',
 
-    # List elements
-    'list': 'list',
-    'lists': 'list',                 # Lists → list
-
-    # Visual elements - map to final classes
+    # Figure elements - includes images, charts, seals
+    'image': 'figure',
     'figure': 'figure',
-    'image': 'image',
-    'figure_caption': 'text',        # Figure caption → text
-    'chart': 'figure',               # Chart → figure
-    'table': 'table',
-    'table_caption': 'text',         # Table caption → text
-    'seal': 'logo',                  # Seal → logo
+    'chart': 'figure',
+    'header_image': 'figure',
+    'footer_image': 'figure',
+    'seal': 'figure',
+    'logo': 'figure',
 
-    # Mathematical elements - map to equation
-    'equation': 'equation',
-    'formula': 'equation',           # Formula → equation
+    # Formula elements
+    'formula': 'formula',
+    'formula_number': 'formula',
+    'equation': 'formula',
 
     # Fallback
     'unknown': 'unknown',
 }
 
-# Color scheme for visualization (BGR format for OpenCV) - Final 11 classes
+# Color scheme for visualization (BGR format for OpenCV) - Final 4 classes
 LABEL_COLORS = {
-    'title': (255, 0, 0),          # Blue
     'text': (0, 255, 0),           # Green
-    'paragraph': (0, 200, 0),      # Light Green
-    'paragraph_title': (0, 180, 0),# Dark Green
-    'list': (50, 200, 50),         # Bright Green
-    'equation': (0, 255, 255),     # Yellow
-    'table': (0, 165, 255),        # Orange
-    'image': (255, 50, 255),       # Light Magenta
+    'formula': (0, 255, 255),      # Yellow
     'figure': (255, 0, 255),       # Magenta
-    'logo': (128, 0, 128),         # Purple
-    'unknown': (128, 128, 128),    # Medium Gray
+    'unknown': (128, 128, 128),    # Gray
 }
 
 
@@ -344,14 +343,14 @@ def extract_annotations(results, label_mapping, extraction_config, debug=False):
 
                     is_duplicate = False
                     for existing in annotations:
-                        if existing['label'] == 'equation' and existing['source'] == 'parsing_res_list':
+                        if existing['label'] == 'formula' and existing['source'] == 'parsing_res_list':
                             if boxes_overlap(existing['bbox'], bbox, threshold=0.7):
                                 is_duplicate = True
                                 break
 
                     if not is_duplicate:
                         annotations.append({
-                            'label': 'equation',
+                            'label': 'formula',
                             'bbox': bbox,
                             'confidence': 0.90,
                             'content': str(formula_text),
@@ -453,7 +452,7 @@ def draw_annotations_on_frame(frame, annotations, label_colors):
 # VIDEO PROCESSING
 # ============================================================================
 
-def process_video(video_path, output_dir, fps_extract=1):
+def process_video(video_path, output_dir, fps_extract=5):
     """
     Process video: extract frames, run PP-Structure, export to X-AnyLabeling format.
 
@@ -653,19 +652,12 @@ def process_video(video_path, output_dir, fps_extract=1):
     with open(annotations_json_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    # Save classes.txt - Final 11 classes
+    # Save classes.txt - Final 4 classes
     classes_txt_path = os.path.join(output_dir, "classes.txt")
     classes = [
-        "title",
         "text",
-        "paragraph",
-        "paragraph_title",
-        "list",
-        "equation",
-        "table",
-        "image",
+        "formula",
         "figure",
-        "logo",
         "unknown"
     ]
     with open(classes_txt_path, 'w', encoding='utf-8') as f:
